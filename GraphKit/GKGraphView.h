@@ -27,7 +27,7 @@
 
 @protocol GKNode <NSObject>
 
-@property (strong, nonatomic) NSArray *links; // of if<GKLink>
+@property (strong, nonatomic) NSArray *links; // of id<GKLink>
 
 @end
 
