@@ -17,6 +17,7 @@
 		E1B54BCA165914420085B06D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B54BC9165914420085B06D /* Default@2x.png */; };
 		E1B54BCC165914420085B06D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B54BCB165914420085B06D /* Default-568h@2x.png */; };
 		E1B54BD4165914E00085B06D /* GKGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B54BD3165914E00085B06D /* GKGraphView.m */; };
+		E1DF7378165C12680012F299 /* GKNodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF7377165C12680012F299 /* GKNodeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		E1B54BCB165914420085B06D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E1B54BD2165914E00085B06D /* GKGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKGraphView.h; sourceTree = "<group>"; };
 		E1B54BD3165914E00085B06D /* GKGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKGraphView.m; sourceTree = "<group>"; };
+		E1DF7376165C12680012F299 /* GKNodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNodeView.h; sourceTree = "<group>"; };
+		E1DF7377165C12680012F299 /* GKNodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKNodeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				E1B54BC5165914420085B06D /* AppDelegate.m */,
 				E1B54BD2165914E00085B06D /* GKGraphView.h */,
 				E1B54BD3165914E00085B06D /* GKGraphView.m */,
+				E1DF7376165C12680012F299 /* GKNodeView.h */,
+				E1DF7377165C12680012F299 /* GKNodeView.m */,
 			);
 			path = GraphKit;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				E1B54BC2165914420085B06D /* main.m in Sources */,
 				E1B54BC6165914420085B06D /* AppDelegate.m in Sources */,
 				E1B54BD4165914E00085B06D /* GKGraphView.m in Sources */,
+				E1DF7378165C12680012F299 /* GKNodeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +289,7 @@
 				E1B54BD1165914420085B06D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -27,6 +27,8 @@
 
 @protocol GKNode <NSObject>
 
+@property (nonatomic) CGPoint center;
+
 @property (strong, nonatomic) NSArray *links; // of id<GKLink>
 
 @end
