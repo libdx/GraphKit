@@ -7,6 +7,9 @@
 //
 
 #import "GKGraphView.h"
+#import "GKNodeView.h"
+#import "GKGraph.h"
+#import "GKNode.h"
 
 @implementation GKGraphView
 {
@@ -15,6 +18,7 @@
     UIScrollView *_contentView;
     UIView *_contentBackgroundView;
     UIView *_graphicView;
+    UIView *_nodesView;
     UIView *_decorationsView;
 }
 
@@ -45,7 +49,7 @@
 
 - (NSArray *)contentSubviewKeys
 {
-    return @[@"_contentBackgroundView", @"_graphicView", @"_decorationsView"];
+    return @[@"_contentBackgroundView", @"_graphicView", @"_nodesView", @"_decorationsView"];
 }
 
 - (void)setBackgroundView:(UIView *)backgroundView
@@ -56,6 +60,8 @@
         [self addSubview:_backgroundView];
     }
 }
+
+static const CGSize GKNodeViewSize = {.width = 40.0f, .height = 40.0f};
 
 - (void)layoutSubviews
 {
@@ -68,15 +74,29 @@
         view.frame = _contentView.bounds;
         [_contentView addSubview:view];
     }
+    BOOL delegateNeedsSizeToFit = [_delegate respondsToSelector:@selector(graphView:needsSizeToFitViewWithNode:)];
+    BOOL delegateSizeForView = [_delegate respondsToSelector:@selector(graphView:sizeForViewWithNode:)];
+    for (GKNodeView *view in _nodesView.subviews) {
+        view.center = view.node.center;
+        if (delegateNeedsSizeToFit)
+            [view sizeToFit];
+        else if (delegateSizeForView)
+            view.size = [_delegate graphView:self sizeForViewWithNode:view.node];
+        else
+            view.size = GKNodeViewSize;
+    }
 }
 
 - (void)addGraph:(id<GKGraph>)graph
 {
+    for (id<GKNode> node in graph.nodes)
+        [self addNode:node];
 }
 
 - (void)addNode:(id<GKNode>)node
 {
-
+    GKNodeView *view = [[GKNodeView alloc] initWithNode:node];
+    [_nodesView addSubview:view];
 }
 
 @end

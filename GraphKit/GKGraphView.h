@@ -21,23 +21,13 @@
 
 @end
 
-@protocol GKGraph <NSObject>
-// ?
-@end
+@protocol GKGraphViewDelegate <NSObject>
 
-@protocol GKNode <NSObject>
+@optional
 
-@property (nonatomic) CGPoint center;
-
-@property (strong, nonatomic) NSArray *links; // of id<GKLink>
-
-@end
-
-@protocol GKLink <NSObject>
-
-@property (strong, nonatomic) id<GKNode> inputNode;
-@property (strong, nonatomic) id<GKNode> outputNode;
-
-@property (nonatomic, getter=isHidden) BOOL hidden;
+// ignores |-graphView:sizeForViewWithNode:| if |-graphView:needsSizeToFitViewWithNode:| is implemented
+// by default provides size 40x40
+- (void)graphView:(GKGraphView *)graphView needsSizeToFitViewWithNode:(id<GKNode>)node;
+- (CGSize)graphView:(GKGraphView *)graphView sizeForViewWithNode:(id<GKNode>)node;
 
 @end

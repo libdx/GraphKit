@@ -14,8 +14,51 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _node = nil;
+        [self initialSetup];
     }
     return self;
+}
+
+- (id)initWithNode:(id<GKNode>)node
+{
+    self = [super initWithFrame:CGRectZero];
+    if (self) {
+        _node = node;
+        [self initialSetup];
+    }
+    return self;
+}
+
+- (void)initialSetup
+{
+    // TODO: setup default appearance
+    _contentView = [[UIView alloc] init];
+    
+    _textView = self.newTextView;
+    _textView.backgroundColor = [UIColor clearColor];
+    
+    // provide default image for |_imageView|
+    _imageView = [[UIImageView alloc] init];
+    [_contentView addSubview:_imageView];
+    
+    _backgroundView = [[UIView alloc] init];
+    _backgroundView.backgroundColor = [UIColor blueColor];
+    [_contentView addSubview:_backgroundView];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    _contentView.frame = self.bounds;
+    _imageView.frame = _contentView.bounds;
+    _backgroundView.frame = _contentView.bounds;
+}
+
+- (UITextView *)newTextView
+{
+    return [[UITextView alloc] init];
 }
 
 - (void)setImageView:(UIImageView *)imageView
@@ -34,6 +77,16 @@
         _backgroundView = backgroundView;
         [self addSubview:_backgroundView];
     }
+}
+
+- (CGSize)sizeThatFits:(CGSize)size
+{
+    CGSize result;
+    CGSize imageSize = [_imageView sizeThatFits:size];
+    CGSize textSize = [_textView sizeThatFits:size];
+    result.width = MAX(imageSize.width, textSize.width);
+    result.height = MAX(imageSize.height, textSize.width);
+    return result;
 }
 
 #pragma mark - UIResponder

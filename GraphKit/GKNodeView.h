@@ -8,20 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol GKNode;
+
 @interface GKNodeView : UIView
 {
 @protected
     UITextView *_textView;
 }
 
+@property (strong, nonatomic, readonly) UIView *contentView;
+@property (strong, nonatomic, readonly) UITextView *textView;
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UIView *backgroundView;
 
-// Owerriden
-- (BOOL)canBecomeFirstResponder;    // default is YES
-- (BOOL)becomeFirstResponder;
-- (BOOL)resignFirstResponder;
-- (BOOL)isFirstResponder;
+@property (strong, nonatomic) id<GKNode> node;
 
+- (id)initWithNode:(id<GKNode>)node;
+
+- (BOOL)canBecomeFirstResponder;    // default is YES
 
 @end
