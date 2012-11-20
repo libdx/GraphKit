@@ -19,6 +19,8 @@
 		E1B54BD4165914E00085B06D /* GKGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B54BD3165914E00085B06D /* GKGraphView.m */; };
 		E1DF7378165C12680012F299 /* GKNodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF7377165C12680012F299 /* GKNodeView.m */; };
 		E1DF737F165C36A70012F299 /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF737E165C36A70012F299 /* UIView+Geometry.m */; };
+		E1DF7382165C3A0F0012F299 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF7381165C3A0F0012F299 /* TestViewController.m */; };
+		E1DF7384165C3B7F0012F299 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1DF7383165C3B7F0012F299 /* TestViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,9 @@
 		E1DF737C165C29450012F299 /* GKLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKLink.h; sourceTree = "<group>"; };
 		E1DF737D165C36820012F299 /* UIView+Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Geometry.h"; sourceTree = "<group>"; };
 		E1DF737E165C36A70012F299 /* UIView+Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Geometry.m"; sourceTree = "<group>"; };
+		E1DF7380165C3A0F0012F299 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		E1DF7381165C3A0F0012F299 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		E1DF7383165C3B7F0012F299 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +107,9 @@
 				E1DF737C165C29450012F299 /* GKLink.h */,
 				E1DF737D165C36820012F299 /* UIView+Geometry.h */,
 				E1DF737E165C36A70012F299 /* UIView+Geometry.m */,
+				E1DF7380165C3A0F0012F299 /* TestViewController.h */,
+				E1DF7381165C3A0F0012F299 /* TestViewController.m */,
+				E1DF7383165C3B7F0012F299 /* TestViewController.xib */,
 			);
 			path = GraphKit;
 			sourceTree = "<group>";
@@ -176,6 +184,7 @@
 				E1B54BC8165914420085B06D /* Default.png in Resources */,
 				E1B54BCA165914420085B06D /* Default@2x.png in Resources */,
 				E1B54BCC165914420085B06D /* Default-568h@2x.png in Resources */,
+				E1DF7384165C3B7F0012F299 /* TestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +200,7 @@
 				E1B54BD4165914E00085B06D /* GKGraphView.m in Sources */,
 				E1DF7378165C12680012F299 /* GKNodeView.m in Sources */,
 				E1DF737F165C36A70012F299 /* UIView+Geometry.m in Sources */,
+				E1DF7382165C3A0F0012F299 /* TestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
