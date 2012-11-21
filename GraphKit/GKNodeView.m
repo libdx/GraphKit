@@ -20,6 +20,16 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        _node = nil;
+        [self initialSetup];
+    }
+    return self;
+}
+
 - (id)initWithNode:(id<GKNode>)node
 {
     self = [super initWithFrame:CGRectZero];
@@ -33,27 +43,53 @@
 - (void)initialSetup
 {
     // TODO: setup default appearance
+
+    _backgroundView = [[UIView alloc] init];
+    _backgroundView.backgroundColor = [UIColor blueColor];
+    [self addSubview:_backgroundView];
+
+    _selectedBackgroundView = [[UIView alloc] init];
+    _selectedBackgroundView.backgroundColor = [UIColor orangeColor];
+    [self addSubview:_selectedBackgroundView];
+
+    _highlightedBackgroundView = [[UIView alloc] init];
+    _highlightedBackgroundView.backgroundColor = [UIColor purpleColor];
+    [self addSubview:_highlightedBackgroundView];
+
     _contentView = [[UIView alloc] init];
-    
-    _textView = self.newTextView;
-    _textView.backgroundColor = [UIColor clearColor];
-    
+    [self addSubview:_contentView];
+
     // provide default image for |_imageView|
     _imageView = [[UIImageView alloc] init];
     [_contentView addSubview:_imageView];
-    
-    _backgroundView = [[UIView alloc] init];
-    _backgroundView.backgroundColor = [UIColor blueColor];
-    [_contentView addSubview:_backgroundView];
+
+    _textView = self.newTextView;
+    _textView.backgroundColor = [UIColor clearColor];
+    [_contentView addSubview:_textView];
 }
+
+- (NSArray *)backgroundViewKeys
+{
+    return @[@"_backgroundView", @"_selectedBackgroundView", @"_highlightedBackgroundView"];
+}
+
+static const UIEdgeInsets GKTextViewInset = {.top = 2.0f, .left = 2.0f, .bottom = 2.0f, .right = 2.0f};
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
+
     _contentView.frame = self.bounds;
     _imageView.frame = _contentView.bounds;
-    _backgroundView.frame = _contentView.bounds;
+    _textView.frame = _contentView.bounds;
+    _textView.width -= GKTextViewInset.left + GKTextViewInset.right;
+    _textView.height -= GKTextViewInset.top + GKTextViewInset.bottom;
+    _textView.left = GKTextViewInset.left;
+    _textView.top = GKTextViewInset.top;
+    for (NSString *key in self.backgroundViewKeys) {
+        UIView *view = [self valueForKey:key];
+        view.frame = self.bounds;
+    }
 }
 
 - (UITextView *)newTextView
@@ -66,7 +102,7 @@
     if (_imageView != imageView) {
         [_imageView removeFromSuperview];
         _imageView = imageView;
-        [self addSubview:imageView];
+        [_contentView insertSubview:imageView belowSubview:_textView];
     }
 }
 
@@ -75,7 +111,25 @@
     if (_backgroundView != backgroundView) {
         [_backgroundView removeFromSuperview];
         _backgroundView = backgroundView;
-        [self addSubview:_backgroundView];
+        [self insertSubview:_backgroundView atIndex:0];
+    }
+}
+
+- (void)setSelectedBackgroundView:(UIView *)selectedBackgroundView
+{
+    if (_selectedBackgroundView != selectedBackgroundView) {
+        [_selectedBackgroundView removeFromSuperview];
+        _selectedBackgroundView = selectedBackgroundView;
+        [self insertSubview:_selectedBackgroundView aboveSubview:_backgroundView];
+    }
+}
+
+- (void)setHighlightedBackgroundView:(UIView *)highlightedBackgroundView
+{
+    if (_highlightedBackgroundView != highlightedBackgroundView) {
+        [_highlightedBackgroundView removeFromSuperview];
+        _highlightedBackgroundView = highlightedBackgroundView;
+        [self insertSubview:_highlightedBackgroundView aboveSubview:_selectedBackgroundView];
     }
 }
 

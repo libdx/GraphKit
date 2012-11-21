@@ -30,6 +30,14 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self)
+        [self initialSetup];
+    return self;
+}
+
 - (void)initialSetup
 {
     _backgroundView = [[UIView alloc] init];
@@ -57,7 +65,7 @@
     if (_backgroundView != backgroundView) {
         [_backgroundView removeFromSuperview];
         _backgroundView = backgroundView;
-        [self addSubview:_backgroundView];
+        [self insertSubview:_backgroundView atIndex:0];
     }
 }
 

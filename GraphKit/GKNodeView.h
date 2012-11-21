@@ -20,6 +20,8 @@
 @property (strong, nonatomic, readonly) UITextView *textView;
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UIView *backgroundView;
+@property (strong, nonatomic) UIView *selectedBackgroundView;
+@property (strong, nonatomic) UIView *highlightedBackgroundView;
 
 @property (strong, nonatomic) id<GKNode> node;
 

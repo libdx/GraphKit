@@ -8,6 +8,8 @@
 
 #import "TestViewController.h"
 #import "GKGraphView.h"
+#import "GKNodeView.h"
+#import "TestNode.h"
 
 @interface TestViewController ()
 
@@ -29,7 +31,8 @@
 {
     [super viewDidLoad];
     
-    
+    TestNode *node = [[TestNode alloc] initWithCenter:CGPointMake(30, 30)];
+    [_graphView addNode:node];
 }
 
 - (void)didReceiveMemoryWarning
