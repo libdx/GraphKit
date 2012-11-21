@@ -85,6 +85,7 @@ static const CGSize GKNodeViewSize = {.width = 40.0f, .height = 40.0f};
     BOOL delegateNeedsSizeToFit = [_delegate respondsToSelector:@selector(graphView:needsSizeToFitViewWithNode:)];
     BOOL delegateSizeForView = [_delegate respondsToSelector:@selector(graphView:sizeForViewWithNode:)];
     for (GKNodeView *view in _nodesView.subviews) {
+        // TODO: enlarge content size if view lays out of it
         view.center = view.node.center;
         if (delegateNeedsSizeToFit)
             [view sizeToFit];
@@ -103,7 +104,12 @@ static const CGSize GKNodeViewSize = {.width = 40.0f, .height = 40.0f};
 
 - (void)addNode:(id<GKNode>)node
 {
-    GKNodeView *view = [[GKNodeView alloc] initWithNode:node];
+    // Also we can collect node and create view on |-layoutSubviews|
+    GKNodeView *view;
+    if ([_delegate respondsToSelector:@selector(graphView:viewForNode:)])
+        view = [_delegate graphView:self viewForNode:node];
+    if (nil == view)
+        view = [[GKNodeView alloc] initWithNode:node];
     [_nodesView addSubview:view];
 }
 

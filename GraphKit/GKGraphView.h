@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+@class GKNodeView;
 @protocol GKGraph, GKNode, GKGraphViewDelegate;
 
 @interface GKGraphView : UIView
@@ -29,5 +30,8 @@
 // by default provides size 40x40
 - (void)graphView:(GKGraphView *)graphView needsSizeToFitViewWithNode:(id<GKNode>)node;
 - (CGSize)graphView:(GKGraphView *)graphView sizeForViewWithNode:(id<GKNode>)node;
+
+// Return |nil| to use the GraphKit provided node view
+- (GKNodeView *)graphView:(GKGraphView *)graphView viewForNode:(id<GKNode>)node;
 
 @end

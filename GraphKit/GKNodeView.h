@@ -23,6 +23,9 @@
 @property (strong, nonatomic) UIView *selectedBackgroundView;
 @property (strong, nonatomic) UIView *highlightedBackgroundView;
 
+@property (nonatomic, getter=isSelected) BOOL selected;
+@property (nonatomic, getter=isHighlighted) BOOL highlighted;
+
 @property (strong, nonatomic) id<GKNode> node;
 
 - (id)initWithNode:(id<GKNode>)node;

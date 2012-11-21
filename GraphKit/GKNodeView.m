@@ -50,10 +50,12 @@
 
     _selectedBackgroundView = [[UIView alloc] init];
     _selectedBackgroundView.backgroundColor = [UIColor orangeColor];
+    self.selected = NO;
     [self addSubview:_selectedBackgroundView];
 
     _highlightedBackgroundView = [[UIView alloc] init];
     _highlightedBackgroundView.backgroundColor = [UIColor purpleColor];
+    self.highlighted = NO;
     [self addSubview:_highlightedBackgroundView];
 
     _contentView = [[UIView alloc] init];
@@ -73,7 +75,7 @@
     return @[@"_backgroundView", @"_selectedBackgroundView", @"_highlightedBackgroundView"];
 }
 
-static const UIEdgeInsets GKTextViewInset = {.top = 2.0f, .left = 2.0f, .bottom = 2.0f, .right = 2.0f};
+static const UIEdgeInsets GKTextViewInset = {.top = 4.0f, .left = 4.0f, .bottom = 4.0f, .right = 4.0f};
 
 - (void)layoutSubviews
 {
@@ -131,6 +133,18 @@ static const UIEdgeInsets GKTextViewInset = {.top = 2.0f, .left = 2.0f, .bottom 
         _highlightedBackgroundView = highlightedBackgroundView;
         [self insertSubview:_highlightedBackgroundView aboveSubview:_selectedBackgroundView];
     }
+}
+
+- (void)setSelected:(BOOL)selected
+{
+    _selected = selected;
+    _selectedBackgroundView.hidden = !_selected;
+}
+
+- (void)setHighlighted:(BOOL)highlighted
+{
+    _highlighted = highlighted;
+    _highlightedBackgroundView.hidden = !_highlighted;
 }
 
 - (CGSize)sizeThatFits:(CGSize)size
