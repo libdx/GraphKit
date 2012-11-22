@@ -11,13 +11,16 @@
 #import "GKNodeView.h"
 #import "TestNode.h"
 
-@interface TestViewController ()
+@interface TestViewController () <GKGraphViewDelegate>
 
 @property (weak, nonatomic) IBOutlet GKGraphView *graphView;
 
 @end
 
 @implementation TestViewController
+{
+    NSMutableArray *_nodes;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,8 +33,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    TestNode *node = [[TestNode alloc] initWithCenter:CGPointMake(30, 30)];
+
+    _graphView.delegate = self;
+
+    _nodes = [[NSMutableArray alloc] init];
+    TestNode *node = [[TestNode alloc] initWithCenter:CGPointMake(350, 250)];
+    node.text = @"First Node";
+    [_nodes addObject:node];
     [_graphView addNode:node];
 }
 
@@ -44,6 +52,24 @@
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskAll;
+}
+
+- (GKNodeView *)graphView:(GKGraphView *)graphView viewForNode:(id<GKNode>)node
+{
+    GKNodeView *view = [[GKNodeView alloc] initWithNode:node];
+    if (_nodes[0] == node)
+        view.textView.text = [_nodes[0] text];
+    return view;
+}
+
+- (BOOL)graphView:(GKGraphView *)graphView needsSizeToFitViewWithNode:(id<GKNode>)node
+{
+    return YES;
+}
+
+- (CGSize)graphView:(GKGraphView *)graphView sizeForViewWithNode:(id<GKNode>)node
+{
+    return CGSizeMake(100, 100);
 }
 
 @end

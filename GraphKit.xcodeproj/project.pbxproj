@@ -22,6 +22,7 @@
 		E1DF7382165C3A0F0012F299 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF7381165C3A0F0012F299 /* TestViewController.m */; };
 		E1DF7384165C3B7F0012F299 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1DF7383165C3B7F0012F299 /* TestViewController.xib */; };
 		E1EA5463165D298400EF5B46 /* TestNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EA5462165D298400EF5B46 /* TestNode.m */; };
+		E1EA54BF165E860200EF5B46 /* red-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E1EA54BE165E860200EF5B46 /* red-button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		E1DF7383165C3B7F0012F299 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		E1EA5461165D298300EF5B46 /* TestNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestNode.h; sourceTree = "<group>"; };
 		E1EA5462165D298400EF5B46 /* TestNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestNode.m; sourceTree = "<group>"; };
+		E1EA54BE165E860200EF5B46 /* red-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-button.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		E1B54BBC165914420085B06D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E1EA54BE165E860200EF5B46 /* red-button.png */,
 				E1B54BBD165914420085B06D /* GraphKit-Info.plist */,
 				E1B54BBE165914420085B06D /* InfoPlist.strings */,
 				E1B54BC1165914420085B06D /* main.m */,
@@ -190,6 +193,7 @@
 				E1B54BCA165914420085B06D /* Default@2x.png in Resources */,
 				E1B54BCC165914420085B06D /* Default-568h@2x.png in Resources */,
 				E1DF7384165C3B7F0012F299 /* TestViewController.xib in Resources */,
+				E1EA54BF165E860200EF5B46 /* red-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

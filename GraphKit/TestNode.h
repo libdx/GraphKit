@@ -11,6 +11,8 @@
 
 @interface TestNode : NSObject <GKNode>
 
+@property (strong, nonatomic) NSString *text;
+
 - (id)initWithCenter:(CGPoint)center;
 
 @end

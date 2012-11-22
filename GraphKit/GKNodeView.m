@@ -44,8 +44,9 @@
 {
     // TODO: setup default appearance
 
-    _backgroundView = [[UIView alloc] init];
-    _backgroundView.backgroundColor = [UIColor blueColor];
+    UIImage *image = [[UIImage imageNamed:@"red-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(6, 7, 9, 7)];
+    _backgroundView = [[UIImageView alloc] initWithImage:image];
+    _backgroundView.backgroundColor = [UIColor clearColor];
     [self addSubview:_backgroundView];
 
     _selectedBackgroundView = [[UIView alloc] init];
@@ -61,7 +62,6 @@
     _contentView = [[UIView alloc] init];
     [self addSubview:_contentView];
 
-    // provide default image for |_imageView|
     _imageView = [[UIImageView alloc] init];
     [_contentView addSubview:_imageView];
 
@@ -149,12 +149,15 @@ static const UIEdgeInsets GKTextViewInset = {.top = 4.0f, .left = 4.0f, .bottom 
 
 - (CGSize)sizeThatFits:(CGSize)size
 {
-    CGSize result;
-    CGSize imageSize = [_imageView sizeThatFits:size];
-    CGSize textSize = [_textView sizeThatFits:size];
-    result.width = MAX(imageSize.width, textSize.width);
-    result.height = MAX(imageSize.height, textSize.width);
-    return result;
+    // TODO: return size to respect view's content
+    return CGSizeMake(60, 60);
+
+//    CGSize result;
+//    CGSize imageSize = [_imageView sizeThatFits:size];
+//    CGSize textSize = [_textView sizeThatFits:size];
+//    result.width = MAX(imageSize.width, textSize.width);
+//    result.height = MAX(imageSize.height, textSize.width);
+//    return result;
 }
 
 #pragma mark - UIResponder
