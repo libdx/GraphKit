@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E18EA98C1660E5890076C565 /* gknodeview-default-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E18EA98B1660E5890076C565 /* gknodeview-default-bg.png */; };
+		E18EA98C1660E5890076C565 /* blue-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E18EA98B1660E5890076C565 /* blue-button.png */; };
 		E1B54BB6165914420085B06D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B54BB5165914420085B06D /* UIKit.framework */; };
 		E1B54BB8165914420085B06D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B54BB7165914420085B06D /* Foundation.framework */; };
 		E1B54BBA165914420085B06D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B54BB9165914420085B06D /* CoreGraphics.framework */; };
@@ -18,6 +18,8 @@
 		E1B54BCA165914420085B06D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B54BC9165914420085B06D /* Default@2x.png */; };
 		E1B54BCC165914420085B06D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B54BCB165914420085B06D /* Default-568h@2x.png */; };
 		E1B54BD4165914E00085B06D /* GKGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B54BD3165914E00085B06D /* GKGraphView.m */; };
+		E1C84FD11662C2840076E21A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C84FD01662C2840076E21A /* QuartzCore.framework */; };
+		E1C84FD61662C5890076E21A /* gknodeview-default-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C84FD51662C5890076E21A /* gknodeview-default-bg.png */; };
 		E1DF7378165C12680012F299 /* GKNodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF7377165C12680012F299 /* GKNodeView.m */; };
 		E1DF737F165C36A70012F299 /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF737E165C36A70012F299 /* UIView+Geometry.m */; };
 		E1DF7382165C3A0F0012F299 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF7381165C3A0F0012F299 /* TestViewController.m */; };
@@ -26,7 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E18EA98B1660E5890076C565 /* gknodeview-default-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gknodeview-default-bg.png"; sourceTree = "<group>"; };
+		E18EA98B1660E5890076C565 /* blue-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-button.png"; sourceTree = "<group>"; };
 		E1B54BB1165914420085B06D /* GraphKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B54BB5165914420085B06D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E1B54BB7165914420085B06D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -42,6 +44,8 @@
 		E1B54BCB165914420085B06D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E1B54BD2165914E00085B06D /* GKGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKGraphView.h; sourceTree = "<group>"; };
 		E1B54BD3165914E00085B06D /* GKGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKGraphView.m; sourceTree = "<group>"; };
+		E1C84FD01662C2840076E21A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E1C84FD51662C5890076E21A /* gknodeview-default-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gknodeview-default-bg.png"; sourceTree = "<group>"; };
 		E1DF7376165C12680012F299 /* GKNodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNodeView.h; sourceTree = "<group>"; };
 		E1DF7377165C12680012F299 /* GKNodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKNodeView.m; sourceTree = "<group>"; };
 		E1DF737A165C290D0012F299 /* GKNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKNode.h; sourceTree = "<group>"; };
@@ -61,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1C84FD11662C2840076E21A /* QuartzCore.framework in Frameworks */,
 				E1B54BB6165914420085B06D /* UIKit.framework in Frameworks */,
 				E1B54BB8165914420085B06D /* Foundation.framework in Frameworks */,
 				E1B54BBA165914420085B06D /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +78,7 @@
 		E1B54BA6165914420085B06D = {
 			isa = PBXGroup;
 			children = (
+				E1C84FD01662C2840076E21A /* QuartzCore.framework */,
 				E1B54BBB165914420085B06D /* GraphKit */,
 				E1B54BBC165914420085B06D /* Supporting Files */,
 				E1B54BB4165914420085B06D /* Frameworks */,
@@ -124,7 +130,8 @@
 		E1B54BBC165914420085B06D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E18EA98B1660E5890076C565 /* gknodeview-default-bg.png */,
+				E1C84FD51662C5890076E21A /* gknodeview-default-bg.png */,
+				E18EA98B1660E5890076C565 /* blue-button.png */,
 				E1B54BBD165914420085B06D /* GraphKit-Info.plist */,
 				E1B54BBE165914420085B06D /* InfoPlist.strings */,
 				E1B54BC1165914420085B06D /* main.m */,
@@ -193,7 +200,8 @@
 				E1B54BCA165914420085B06D /* Default@2x.png in Resources */,
 				E1B54BCC165914420085B06D /* Default-568h@2x.png in Resources */,
 				E1DF7384165C3B7F0012F299 /* TestViewController.xib in Resources */,
-				E18EA98C1660E5890076C565 /* gknodeview-default-bg.png in Resources */,
+				E18EA98C1660E5890076C565 /* blue-button.png in Resources */,
+				E1C84FD61662C5890076E21A /* gknodeview-default-bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

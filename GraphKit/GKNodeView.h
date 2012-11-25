@@ -33,3 +33,8 @@
 - (BOOL)canBecomeFirstResponder;    // default is YES
 
 @end
+
+@interface GKNodeView (SubclassesHooks)
+// Use for manipulating with background view shape. Commonly shape layer is provided. Is called on |-layoutSubviews|
+- (CALayer *)backgroundMaskLayer;
+@end

@@ -38,7 +38,7 @@
 
     _nodes = [[NSMutableArray alloc] init];
     TestNode *node = [[TestNode alloc] initWithCenter:CGPointMake(350, 250)];
-    node.text = @"First Node";
+    node.text = @"The Node";
     [_nodes addObject:node];
     [_graphView addNode:node];
 }

@@ -8,6 +8,8 @@
 
 #import "GKNodeView.h"
 
+#import <QuartzCore/QuartzCore.h> //tmp
+
 @implementation GKNodeView
 
 - (id)initWithFrame:(CGRect)frame
@@ -76,7 +78,7 @@
     return @[@"_backgroundView", @"_selectedBackgroundView", @"_highlightedBackgroundView"];
 }
 
-static const UIEdgeInsets GKTextViewInset = {.top = 4.0f, .left = 4.0f, .bottom = 4.0f, .right = 4.0f};
+//static const UIEdgeInsets GKTextViewInset = {.top = 4.0f, .left = 4.0f, .bottom = 4.0f, .right = 4.0f};
 
 - (void)layoutSubviews
 {
@@ -84,15 +86,29 @@ static const UIEdgeInsets GKTextViewInset = {.top = 4.0f, .left = 4.0f, .bottom 
 
     _contentView.frame = self.bounds;
     _imageView.frame = _contentView.bounds;
-    _textView.frame = _contentView.bounds;
-    _textView.width -= GKTextViewInset.left + GKTextViewInset.right;
-    _textView.height -= GKTextViewInset.top + GKTextViewInset.bottom;
-    _textView.left = GKTextViewInset.left;
-    _textView.top = GKTextViewInset.top;
+    _textView.frame = _contentView.bounds; // needs to setup text view's frame for correct internal geometry calculations
+    [_textView sizeToFit];
+   _textView.center = CGPointMake(round(0.5*_contentView.width), round(0.5*_contentView.height));
     for (NSString *key in self.backgroundViewKeys) {
         UIView *view = [self valueForKey:key];
         view.frame = self.bounds;
     }
+    _backgroundView.layer.mask = [self backgroundMaskLayer];
+}
+
+- (CALayer *)backgroundMaskLayer
+{
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathAddEllipseInRect(path, NULL, _backgroundView.bounds);
+    CAShapeLayer *mask = [[CAShapeLayer alloc] init];
+    mask.path = CGPathCreateCopy(path);
+
+    // use this to create outline
+//    mask.path = CGPathCreateCopyByStrokingPath(path, NULL, 5, kCGLineCapButt, kCGLineJoinMiter, 2);
+
+    CGPathRelease(path);
+    mask.lineWidth = 5;
+    return mask;
 }
 
 - (UITextView *)newTextView
