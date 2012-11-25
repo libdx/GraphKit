@@ -44,7 +44,8 @@
 {
     // TODO: setup default appearance
 
-    UIImage *image = [[UIImage imageNamed:@"red-button.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(6, 7, 9, 7)];
+    UIImage *image = [[UIImage imageNamed:@"gknodeview-default-bg.png"]
+                      resizableImageWithCapInsets:UIEdgeInsetsMake(7, 7, 7, 7) resizingMode:UIImageResizingModeStretch];
     _backgroundView = [[UIImageView alloc] initWithImage:image];
     _backgroundView.backgroundColor = [UIColor clearColor];
     [self addSubview:_backgroundView];

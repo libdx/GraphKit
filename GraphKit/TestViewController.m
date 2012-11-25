@@ -64,12 +64,12 @@
 
 - (BOOL)graphView:(GKGraphView *)graphView needsSizeToFitViewWithNode:(id<GKNode>)node
 {
-    return YES;
+    return NO;
 }
 
 - (CGSize)graphView:(GKGraphView *)graphView sizeForViewWithNode:(id<GKNode>)node
 {
-    return CGSizeMake(100, 100);
+    return CGSizeMake(150, 80);
 }
 
 @end
