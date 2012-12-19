@@ -10,7 +10,7 @@
 
 @protocol GKNode;
 
-@interface GKNodeView : UIView
+@interface GKNodeView : UIView <UITextViewDelegate>
 {
 @protected
     UITextView *_textView;
@@ -21,16 +21,18 @@
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UIView *backgroundView;
 @property (strong, nonatomic) UIView *selectedBackgroundView;
-@property (strong, nonatomic) UIView *highlightedBackgroundView;
+@property (strong, nonatomic) UIView *highlightedBackgroundView; // TODO: remake to hightlightedView
 
 @property (nonatomic, getter=isSelected) BOOL selected;
 @property (nonatomic, getter=isHighlighted) BOOL highlighted;
 
+@property (strong, nonatomic, readonly) UIResponder *responder;
+
+@property (nonatomic) CGSize constrainedSize;
+
 @property (strong, nonatomic) id<GKNode> node;
 
 - (id)initWithNode:(id<GKNode>)node;
-
-- (BOOL)canBecomeFirstResponder;    // default is YES
 
 @end
 
