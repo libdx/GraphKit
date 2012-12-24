@@ -69,11 +69,11 @@
 
     _textView = self.newTextView;
     _textView.delegate = self;
-//    _textView.textAlignment = NSTextAlignmentCenter;
+//    _textView.textAlignment = NSTextAlignmentCenter; //?
     _textView.font = [UIFont systemFontOfSize:16.0f];
     _textView.backgroundColor = [UIColor clearColor];
-    _textView.backgroundColor = [UIColor yellowColor]; //tmp
-    _textView.alpha = 0.3; //tmp
+//    _textView.backgroundColor = [UIColor yellowColor]; //tmp
+//    _textView.alpha = 0.3; //tmp
     [_contentView addSubview:_textView];
 
     _constrainedSize = CGSizeMake(230, 150);
@@ -147,6 +147,9 @@
     _imageView.frame = _contentView.bounds;
     _textView.size = [self sizeForTextView:_textView];
     _textView.center = CGPointMake(round(0.5*_contentView.width), round(0.5*_contentView.height));
+//    _textView.left = floor(_textView.left); // this will make x coordinate more constant and smooth fractions
+    [_textView roundPosition];
+    NSLog(@"%f", _textView.left);
     for (NSString *key in self.backgroundViewKeys) {
         UIView *view = [self valueForKey:key];
         view.frame = self.bounds;
@@ -158,7 +161,7 @@
 {
     CGSize res = CGSizeMake(150, 80); // must depend on font
     CGFloat width = [self textContentsWidthForObject:_textView];
-    CGFloat height = [self textContentsHeightForObject:_textView];
+    CGFloat height = [self textContentsHeightForObject:_textView forWidth:width];
     CGSize newSize = [self sizeThatFitsTextContentsSize:CGSizeMake(width, height)];
     // ensure that view will become not smaller than minimal size
     res.width = newSize.width > res.width ? newSize.width : res.width;
@@ -166,6 +169,11 @@
     // ensure that view will become not bigger than |_constrainedSize|
     res.width = res.width > _constrainedSize.width ? _constrainedSize.width : res.width;
     res.height = res.height > _constrainedSize.height ? _constrainedSize.height : res.height;
+
+    // check whenever we need to change size of |_textView|
+    if (NO == CGSizeEqualToSize(_textView.size, [self sizeForTextView:_textView]))
+        [self setNeedsLayout];
+
     return res;
 }
 
@@ -206,15 +214,15 @@ static const UIEdgeInsets GKTextContentsInsets = {.top = 10.0f, .left = 10.0f, .
                        lineBreakMode:NSLineBreakByClipping].width;
     return res;
 }
-- (CGFloat)textContentsHeightForObject:(id)object
+- (CGFloat)textContentsHeightForObject:(id)object forWidth:(CGFloat)width
 {
     NSString *text = [object valueForKey:@"text"];
     UIFont *font = [object valueForKey:@"font"];
-    CGSize constrainedSize = [self textContentsSizeThatRespectsSize:_constrainedSize];
     CGFloat res = [text sizeWithFont:font
-                   constrainedToSize:CGSizeMake(constrainedSize.width, MAXFLOAT)
+                   constrainedToSize:CGSizeMake(width, MAXFLOAT)
                        lineBreakMode:NSLineBreakByWordWrapping].height;
     // ensure that height is not bigger than constrained contents' height
+    CGSize constrainedSize = [self textContentsSizeThatRespectsSize:_constrainedSize];
     res = res < constrainedSize.height ? res : constrainedSize.height;
     return res;
 }
@@ -223,7 +231,7 @@ static const UIEdgeInsets GKTextContentsInsets = {.top = 10.0f, .left = 10.0f, .
 {
     CGSize res;
     res.width = [self textContentsWidthForObject:textView];
-    res.height = [self textContentsHeightForObject:textView];
+    res.height = [self textContentsHeightForObject:textView forWidth:res.width];
     res.width += 2*UITextView.textOffset.x;
     res.height += 2*UITextView.textOffset.y;
     CGSize minSize = CGSizeMake(90, 50); // must depend on font

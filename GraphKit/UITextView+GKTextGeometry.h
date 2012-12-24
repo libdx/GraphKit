@@ -12,4 +12,6 @@
 
 + (CGPoint)textOffset;
 
+- (void)roundPosition;
+
 @end

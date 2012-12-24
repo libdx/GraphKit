@@ -15,4 +15,23 @@
     return CGPointMake(8, 8);
 }
 
+- (void)roundPosition
+{
+    switch (self.textAlignment)
+    {
+        case NSTextAlignmentCenter:
+            self.centerX = roundf(self.centerX);
+            break;
+        case NSTextAlignmentLeft:
+        case NSTextAlignmentJustified:
+            self.left = floorf(self.left);
+            break;
+        case NSTextAlignmentRight:
+            self.right = ceilf(self.right);
+            break;
+        default:
+            break;
+    }
+}
+
 @end
