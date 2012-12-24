@@ -94,7 +94,7 @@ static const CGSize GKNodeViewSize = {.width = 44.0f, .height = 44.0f};
         else
             view.size = GKNodeViewSize;
     }
-    [[_nodesView.subviews.lastObject responder] becomeFirstResponder]; //tmp
+    [[_nodesView.subviews.lastObject inputResponder] becomeFirstResponder]; //tmp
 }
 
 - (void)addGraph:(id<GKGraph>)graph

@@ -21,12 +21,12 @@
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UIView *backgroundView;
 @property (strong, nonatomic) UIView *selectedBackgroundView;
-@property (strong, nonatomic) UIView *highlightedBackgroundView; // TODO: remake to hightlightedView
+@property (strong, nonatomic) UIView *highlightedBackgroundView;
 
 @property (nonatomic, getter=isSelected) BOOL selected;
 @property (nonatomic, getter=isHighlighted) BOOL highlighted;
 
-@property (strong, nonatomic, readonly) UIResponder *responder;
+@property (strong, nonatomic, readonly) UIResponder *inputResponder;
 
 @property (nonatomic) CGSize constrainedSize;
 
