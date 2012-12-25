@@ -24,7 +24,7 @@
 		E1DF737F165C36A70012F299 /* UIView+Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF737E165C36A70012F299 /* UIView+Geometry.m */; };
 		E1DF7382165C3A0F0012F299 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF7381165C3A0F0012F299 /* TestViewController.m */; };
 		E1DF7384165C3B7F0012F299 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1DF7383165C3B7F0012F299 /* TestViewController.xib */; };
-		E1E8B739167A607100BA6402 /* UITextView+GKTextGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8B738167A607100BA6402 /* UITextView+GKTextGeometry.m */; };
+		E1E8B739167A607100BA6402 /* UITextView+GKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E8B738167A607100BA6402 /* UITextView+GKAdditions.m */; };
 		E1EA5463165D298400EF5B46 /* TestNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E1EA5462165D298400EF5B46 /* TestNode.m */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +57,8 @@
 		E1DF7380165C3A0F0012F299 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		E1DF7381165C3A0F0012F299 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		E1DF7383165C3B7F0012F299 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
-		E1E8B737167A607100BA6402 /* UITextView+GKTextGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+GKTextGeometry.h"; sourceTree = "<group>"; };
-		E1E8B738167A607100BA6402 /* UITextView+GKTextGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+GKTextGeometry.m"; sourceTree = "<group>"; };
+		E1E8B737167A607100BA6402 /* UITextView+GKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+GKAdditions.h"; sourceTree = "<group>"; };
+		E1E8B738167A607100BA6402 /* UITextView+GKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+GKAdditions.m"; sourceTree = "<group>"; };
 		E1EA5461165D298300EF5B46 /* TestNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestNode.h; sourceTree = "<group>"; };
 		E1EA5462165D298400EF5B46 /* TestNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,8 +126,8 @@
 				E1DF7383165C3B7F0012F299 /* TestViewController.xib */,
 				E1EA5461165D298300EF5B46 /* TestNode.h */,
 				E1EA5462165D298400EF5B46 /* TestNode.m */,
-				E1E8B737167A607100BA6402 /* UITextView+GKTextGeometry.h */,
-				E1E8B738167A607100BA6402 /* UITextView+GKTextGeometry.m */,
+				E1E8B737167A607100BA6402 /* UITextView+GKAdditions.h */,
+				E1E8B738167A607100BA6402 /* UITextView+GKAdditions.m */,
 			);
 			path = GraphKit;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 				E1DF737F165C36A70012F299 /* UIView+Geometry.m in Sources */,
 				E1DF7382165C3A0F0012F299 /* TestViewController.m in Sources */,
 				E1EA5463165D298400EF5B46 /* TestNode.m in Sources */,
-				E1E8B739167A607100BA6402 /* UITextView+GKTextGeometry.m in Sources */,
+				E1E8B739167A607100BA6402 /* UITextView+GKAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

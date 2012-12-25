@@ -1,14 +1,14 @@
 //
-//  UITextView+TextGeometry.m
+//  UITextView+GKAdditions.m
 //  GraphKit
 //
 //  Created by Alexander Ignatenko on 12/13/12.
 //  Copyright (c) 2012 Alexander Ignatenko. All rights reserved.
 //
 
-#import "UITextView+GKTextGeometry.h"
+#import "UITextView+GKAdditions.h"
 
-@implementation UITextView (GKTextGeometry)
+@implementation UITextView (GKAdditions)
 
 + (CGPoint)textOffset
 {

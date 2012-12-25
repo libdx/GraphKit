@@ -9,7 +9,7 @@
 #import "GKNodeView.h"
 
 #import <QuartzCore/QuartzCore.h> //tmp
-#import "UITextView+GKTextGeometry.h"
+#import "UITextView+GKAdditions.h"
 
 @implementation GKNodeView
 
@@ -130,12 +130,19 @@
 {
     _selected = selected;
     _selectedBackgroundView.hidden = !_selected;
+    [self updateComponents];
 }
 
 - (void)setHighlighted:(BOOL)highlighted
 {
     _highlighted = highlighted;
     _highlightedBackgroundView.hidden = !_highlighted;
+    [self updateComponents];
+}
+
+- (void)updateComponents
+{
+    _textView.textColor = _highlighted || _selected ? [UIColor whiteColor] : [UIColor blackColor];
 }
 
 #pragma mark - Geometry

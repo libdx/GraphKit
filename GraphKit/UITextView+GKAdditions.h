@@ -1,5 +1,5 @@
 //
-//  UITextView+TextGeometry.h
+//  UITextView+GKAdditions.h
 //  GraphKit
 //
 //  Created by Alexander Ignatenko on 12/13/12.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITextView (GKTextGeometry)
+@interface UITextView (GKAdditions)
 
 + (CGPoint)textOffset;
 
