@@ -26,6 +26,9 @@
 @property (nonatomic, getter=isSelected) BOOL selected;
 @property (nonatomic, getter=isHighlighted) BOOL highlighted;
 
+@property (strong, nonatomic) UIColor *highlightedTextColor; // default is [UIColor whiteColor]
+@property (strong, nonatomic) UIColor *selectedTextColor; // default is [UIColor whiteColor]
+
 @property (strong, nonatomic, readonly) UIResponder *inputResponder;
 
 @property (nonatomic) CGSize constrainedSize;

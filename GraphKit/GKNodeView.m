@@ -52,12 +52,12 @@
     [self addSubview:_backgroundView];
 
     _selectedBackgroundView = [[UIView alloc] init];
-    _selectedBackgroundView.backgroundColor = [UIColor orangeColor];
+    _selectedBackgroundView.backgroundColor = [UIColor purpleColor];
     self.selected = NO;
     [self addSubview:_selectedBackgroundView];
 
     _highlightedBackgroundView = [[UIView alloc] init];
-    _highlightedBackgroundView.backgroundColor = [UIColor purpleColor];
+    _highlightedBackgroundView.backgroundColor = [UIColor orangeColor];
     self.highlighted = NO;
     [self addSubview:_highlightedBackgroundView];
 
@@ -76,6 +76,9 @@
 //    _textView.alpha = 0.3; //tmp
     [self updateScrollEnabledForTextView:_textView];
     [_contentView addSubview:_textView];
+
+    _highlightedTextColor = [UIColor whiteColor];
+    _selectedTextColor = [UIColor whiteColor];
 
     _constrainedSize = CGSizeMake(230, 150);
 }
@@ -129,20 +132,39 @@
 - (void)setSelected:(BOOL)selected
 {
     _selected = selected;
-    _selectedBackgroundView.hidden = !_selected;
+    _highlighted = _highlighted && _selected ? NO : _highlighted;
     [self updateComponents];
 }
 
 - (void)setHighlighted:(BOOL)highlighted
 {
     _highlighted = highlighted;
-    _highlightedBackgroundView.hidden = !_highlighted;
+    _selected = _selected && _highlighted ? NO : _selected;
     [self updateComponents];
 }
 
 - (void)updateComponents
 {
-    _textView.textColor = _highlighted || _selected ? [UIColor whiteColor] : [UIColor blackColor];
+    _highlightedBackgroundView.hidden = !_highlighted;
+    _selectedBackgroundView.hidden = !_selected;
+    if (_highlighted)
+        _textView.textColor = _highlightedTextColor;
+    else if (_selected)
+        _textView.textColor = _selectedTextColor;
+    else
+        _textView.textColor = [UIColor blackColor];
+}
+
+- (void)setHighlightedTextColor:(UIColor *)highlightedTextColor
+{
+    _highlightedTextColor = highlightedTextColor;
+    [self updateComponents];
+}
+
+- (void)setSelectedTextColor:(UIColor *)selectedTextColor
+{
+    _selectedTextColor = selectedTextColor;
+    [self updateComponents];
 }
 
 #pragma mark - Geometry
@@ -165,7 +187,7 @@
 
 - (CGSize)sizeThatFits:(CGSize)size
 {
-    CGSize res = CGSizeMake(150, 80); // must depend on font
+    CGSize res = CGSizeMake(150, 80); // FIXME: must depend on font
     CGFloat width = [self textContentsWidthForObject:_textView];
     CGFloat height = [self textContentsHeightForObject:_textView forWidth:width];
     CGSize newSize = [self sizeThatFitsTextContentsSize:CGSizeMake(width, height)];
@@ -253,7 +275,7 @@ static const UIEdgeInsets GKTextContentsInsets = {.top = 10.0f, .left = 10.0f, .
     res.height = [self textContentsHeightForObject:textView forWidth:res.width];
     res.width += 2*UITextView.textOffset.x;
     res.height += 2*UITextView.textOffset.y;
-    CGSize minSize = CGSizeMake(90, 50); // must depend on font
+    CGSize minSize = CGSizeMake(90, 50); // FIXME: must depend on font
     // ensure that result is bigger than minimal allowed size
     res.width = res.width > minSize.width ? res.width : minSize.width;
     res.height = res.height > minSize.height ? res.height : minSize.height;
