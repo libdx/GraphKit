@@ -69,7 +69,7 @@
 
     _textView = self.newTextView;
     _textView.delegate = self;
-//    _textView.textAlignment = NSTextAlignmentCenter; //?
+    _textView.textAlignment = NSTextAlignmentCenter; //?
     _textView.font = [UIFont systemFontOfSize:16.0f];
     _textView.backgroundColor = [UIColor clearColor];
 //    _textView.backgroundColor = [UIColor yellowColor]; //tmp
@@ -147,9 +147,7 @@
     _imageView.frame = _contentView.bounds;
     _textView.size = [self sizeForTextView:_textView];
     _textView.center = CGPointMake(round(0.5*_contentView.width), round(0.5*_contentView.height));
-//    _textView.left = floor(_textView.left); // this will make x coordinate more constant and smooth fractions
     [_textView roundPosition];
-    NSLog(@"%f", _textView.left);
     for (NSString *key in self.backgroundViewKeys) {
         UIView *view = [self valueForKey:key];
         view.frame = self.bounds;
@@ -223,6 +221,18 @@ static const UIEdgeInsets GKTextContentsInsets = {.top = 10.0f, .left = 10.0f, .
                        lineBreakMode:NSLineBreakByWordWrapping].height;
     // ensure that height is not bigger than constrained contents' height
     CGSize constrainedSize = [self textContentsSizeThatRespectsSize:_constrainedSize];
+
+    // if last character is a new line, add one line height to result
+    NSInteger lastIndex = text.length - 1;
+    if (lastIndex > 0) {
+        NSString *substr = [text substringFromIndex:lastIndex];
+        if ([substr isEqualToString:@"\n"]) {
+            res += [@"a" sizeWithFont:font
+                            constrainedToSize:CGSizeMake(width, MAXFLOAT)
+                                lineBreakMode:NSLineBreakByWordWrapping].height;
+        }
+    }
+
     res = res < constrainedSize.height ? res : constrainedSize.height;
     return res;
 }

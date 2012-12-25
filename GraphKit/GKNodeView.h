@@ -36,7 +36,7 @@
 
 @end
 
-@interface GKNodeView (SubclassesHooks)
+@interface GKNodeView (ExperimentalSubclassesHooks)
 // Use for manipulating with background view shape. Commonly shape layer is provided. Is called on |-layoutSubviews|
 - (CALayer *)backgroundMaskLayer;
 @end

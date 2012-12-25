@@ -20,7 +20,8 @@
     switch (self.textAlignment)
     {
         case NSTextAlignmentCenter:
-            self.centerX = roundf(self.centerX);
+//            self.centerX = roundf(self.centerX);
+            self.centerX = floorf(self.centerX);
             break;
         case NSTextAlignmentLeft:
         case NSTextAlignmentJustified:
