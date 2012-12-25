@@ -1,18 +1,23 @@
 //
-//  UITextView+GKAdditions.m
+//  GKAdditions.m
 //  GraphKit
 //
 //  Created by Alexander Ignatenko on 12/13/12.
 //  Copyright (c) 2012 Alexander Ignatenko. All rights reserved.
 //
 
-#import "UITextView+GKAdditions.h"
+#import "GKAdditions.h"
 
 @implementation UITextView (GKAdditions)
 
 + (CGPoint)textOffset
 {
     return CGPointMake(8, 8);
+}
+
++ (CGFloat)heightForAutocorrectionPopup
+{
+    return 14.0f;
 }
 
 - (void)roundPosition
@@ -33,6 +38,26 @@
         default:
             break;
     }
+}
+
+@end
+
+@implementation NSString (GKAdditions)
+
++ (CGSize)singleCharacterSizeWithFont:(UIFont *)font
+{
+    return [@"a" sizeWithFont:font
+            constrainedToSize:CGSizeMake(MAXFLOAT, MAXFLOAT)
+                lineBreakMode:NSLineBreakByWordWrapping];
+}
+
+- (NSString *)lastCharacter
+{
+    NSString *res;
+    NSInteger lastIndex = self.length - 1;
+    if (lastIndex >= 0)
+        res = [self substringFromIndex:lastIndex];
+    return res;
 }
 
 @end

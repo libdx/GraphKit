@@ -9,7 +9,7 @@
 #import "GKNodeView.h"
 
 #import <QuartzCore/QuartzCore.h> //tmp
-#import "UITextView+GKAdditions.h"
+#import "GKAdditions.h"
 
 @implementation GKNodeView
 
@@ -73,6 +73,7 @@
     _textView.font = [UIFont systemFontOfSize:16.0f];
     _textView.backgroundColor = [UIColor clearColor];
 //    _textView.backgroundColor = [UIColor yellowColor]; //tmp
+//    _textView.font = [UIFont systemFontOfSize:23]; //tmp
 //    _textView.alpha = 0.3; //tmp
     [self updateScrollEnabledForTextView:_textView];
     [_contentView addSubview:_textView];
@@ -254,15 +255,8 @@ static const UIEdgeInsets GKTextContentsInsets = {.top = 10.0f, .left = 10.0f, .
     CGSize constrainedSize = [self textContentsSizeThatRespectsSize:_constrainedSize];
 
     // if last character is a new line, add one line height to result
-    NSInteger lastIndex = text.length - 1;
-    if (lastIndex > 0) {
-        NSString *substr = [text substringFromIndex:lastIndex];
-        if ([substr isEqualToString:@"\n"]) {
-            res += [@"a" sizeWithFont:font
-                            constrainedToSize:CGSizeMake(width, MAXFLOAT)
-                                lineBreakMode:NSLineBreakByWordWrapping].height;
-        }
-    }
+    if ([text.lastCharacter isEqualToString:@"\n"])
+        res += [NSString singleCharacterSizeWithFont:font].height;
 
     res = res < constrainedSize.height ? res : constrainedSize.height;
     return res;
@@ -273,12 +267,16 @@ static const UIEdgeInsets GKTextContentsInsets = {.top = 10.0f, .left = 10.0f, .
     CGSize res;
     res.width = [self textContentsWidthForObject:textView];
     res.height = [self textContentsHeightForObject:textView forWidth:res.width];
-    res.width += 2*UITextView.textOffset.x;
-    res.height += 2*UITextView.textOffset.y;
-    CGSize minSize = CGSizeMake(90, 50); // FIXME: must depend on font
+    CGSize singleCharacterSize = [NSString singleCharacterSizeWithFont:textView.font];
+    // FIXME: heightForAutocorrectionPopup must depend on font
+    CGSize minSize = CGSizeMake(4*singleCharacterSize.width,
+                                singleCharacterSize.height + UITextView.heightForAutocorrectionPopup);
     // ensure that result is bigger than minimal allowed size
     res.width = res.width > minSize.width ? res.width : minSize.width;
     res.height = res.height > minSize.height ? res.height : minSize.height;
+
+    res.width += 2*UITextView.textOffset.x;
+    res.height += 2*UITextView.textOffset.y;
     return res;
 }
 
