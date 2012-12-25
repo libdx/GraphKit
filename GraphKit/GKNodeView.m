@@ -74,6 +74,7 @@
     _textView.backgroundColor = [UIColor clearColor];
 //    _textView.backgroundColor = [UIColor yellowColor]; //tmp
 //    _textView.alpha = 0.3; //tmp
+    [self updateScrollEnabledForTextView:_textView];
     [_contentView addSubview:_textView];
 
     _constrainedSize = CGSizeMake(230, 150);
@@ -178,6 +179,7 @@
 - (void)textViewDidChange:(UITextView *)textView
 {
     [self sizeToFit];
+    [self updateScrollEnabledForTextView:textView];
 }
 
 static const UIEdgeInsets GKTextContentsInsets = {.top = 10.0f, .left = 10.0f, .bottom = 10.0f, .right = 10.0f};
@@ -249,6 +251,15 @@ static const UIEdgeInsets GKTextContentsInsets = {.top = 10.0f, .left = 10.0f, .
     res.width = res.width > minSize.width ? res.width : minSize.width;
     res.height = res.height > minSize.height ? res.height : minSize.height;
     return res;
+}
+
+// workaround for avoiding slightly scrolling to bottom when typing a new line
+- (void)updateScrollEnabledForTextView:(UITextView *)textView
+{
+    if (textView.contentSize.height > [self sizeForTextView:textView].height)
+        textView.scrollEnabled = YES;
+    else
+        textView.scrollEnabled = NO;
 }
 
 #pragma mark - UIResponder
