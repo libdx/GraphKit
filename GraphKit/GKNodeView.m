@@ -188,7 +188,7 @@
 
 - (CGSize)sizeThatFits:(CGSize)size
 {
-    CGSize res = CGSizeMake(150, 80); // FIXME: must depend on font
+    CGSize res = CGSizeMake(150, 80); // FIXME: must depend on font (contents)
     CGFloat width = [self textContentsWidthForObject:_textView];
     CGFloat height = [self textContentsHeightForObject:_textView forWidth:width];
     CGSize newSize = [self sizeThatFitsTextContentsSize:CGSizeMake(width, height)];

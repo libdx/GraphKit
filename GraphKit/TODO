@@ -1,0 +1,13 @@
+- Minimal size of node view must depend on its contents (text + image)
+- UITextView's +heightForAutocorrectionPopup must depend on font
+- Make constant GKNewLine = @"\n"
+- Implement -hitTest:withEvent for GKGraphView to make invisible view invisible for taps
+- Add touch, tap and double tap gesture handlers to GKGraphView
+- Create new node by double tap. Handle it in TestViewController
+- Hightlight and select node views by touch and tap
+- Add appropriate images for hightlited and selected states
+- Add image support for node view
+- Add subclassing support for node view
+- Add delegate methods for GKGraphView
+- Implement links
+

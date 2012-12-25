@@ -18,6 +18,7 @@
 		E1B54BCA165914420085B06D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B54BC9165914420085B06D /* Default@2x.png */; };
 		E1B54BCC165914420085B06D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B54BCB165914420085B06D /* Default-568h@2x.png */; };
 		E1B54BD4165914E00085B06D /* GKGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B54BD3165914E00085B06D /* GKGraphView.m */; };
+		E1C518C1168A000C00FBFE48 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = E1C518C0168A000C00FBFE48 /* TODO */; };
 		E1C84FD11662C2840076E21A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C84FD01662C2840076E21A /* QuartzCore.framework */; };
 		E1C84FD61662C5890076E21A /* gknodeview-default-pattern.png in Resources */ = {isa = PBXBuildFile; fileRef = E1C84FD51662C5890076E21A /* gknodeview-default-pattern.png */; };
 		E1DF7378165C12680012F299 /* GKNodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E1DF7377165C12680012F299 /* GKNodeView.m */; };
@@ -45,6 +46,7 @@
 		E1B54BCB165914420085B06D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E1B54BD2165914E00085B06D /* GKGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKGraphView.h; sourceTree = "<group>"; };
 		E1B54BD3165914E00085B06D /* GKGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKGraphView.m; sourceTree = "<group>"; };
+		E1C518C0168A000C00FBFE48 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
 		E1C84FD01662C2840076E21A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E1C84FD51662C5890076E21A /* gknodeview-default-pattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gknodeview-default-pattern.png"; sourceTree = "<group>"; };
 		E1DF7376165C12680012F299 /* GKNodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKNodeView.h; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		E1B54BBB165914420085B06D /* GraphKit */ = {
 			isa = PBXGroup;
 			children = (
+				E1C518C0168A000C00FBFE48 /* TODO */,
 				E1B54BC4165914420085B06D /* AppDelegate.h */,
 				E1B54BC5165914420085B06D /* AppDelegate.m */,
 				E1B54BD2165914E00085B06D /* GKGraphView.h */,
@@ -207,6 +210,7 @@
 				E1DF7384165C3B7F0012F299 /* TestViewController.xib in Resources */,
 				E18EA98C1660E5890076C565 /* gknodeview-default-bg.png in Resources */,
 				E1C84FD61662C5890076E21A /* gknodeview-default-pattern.png in Resources */,
+				E1C518C1168A000C00FBFE48 /* TODO in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
