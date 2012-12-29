@@ -10,9 +10,9 @@
 
 @interface UITextView (GKAdditions)
 + (CGPoint)textOffset;
-// FIXME: heightForAutocorrectionPopup must depend on font
-+ (CGFloat)heightForAutocorrectionPopup;//WithFont:(UIFont)font;
 - (void)roundPosition;
+- (CGSize)sizeThatFitsTextContentsSize:(CGSize)contentsSize;
+- (BOOL)isFitsTextContents;
 @end
 
 @interface NSString (GKAdditions)

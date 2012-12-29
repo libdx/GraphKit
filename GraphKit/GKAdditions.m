@@ -15,11 +15,6 @@
     return CGPointMake(8, 8);
 }
 
-+ (CGFloat)heightForAutocorrectionPopup
-{
-    return 14.0f;
-}
-
 - (void)roundPosition
 {
     switch (self.textAlignment)
@@ -38,6 +33,27 @@
         default:
             break;
     }
+}
+
+- (CGSize)sizeThatFitsTextContentsSize:(CGSize)contentsSize
+{
+    CGSize res = contentsSize;
+    CGSize singleCharacterSize = [NSString singleCharacterSizeWithFont:self.font];
+    CGSize minSize = CGSizeMake(4*singleCharacterSize.width,
+                                singleCharacterSize.height);
+
+    // ensure that result is bigger than minimal allowed size
+    res.width = res.width > minSize.width ? res.width : minSize.width;
+    res.height = res.height > minSize.height ? res.height : minSize.height;
+
+    res.width += 2*UITextView.textOffset.x;
+    res.height += 2*UITextView.textOffset.y;
+    return res;
+}
+
+- (BOOL)isFitsTextContents
+{
+    return NO;
 }
 
 @end

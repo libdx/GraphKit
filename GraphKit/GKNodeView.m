@@ -72,7 +72,7 @@
     _textView.textAlignment = NSTextAlignmentCenter; //?
     _textView.font = [UIFont systemFontOfSize:16.0f];
     _textView.backgroundColor = [UIColor clearColor];
-//    _textView.backgroundColor = [UIColor yellowColor]; //tmp
+    _textView.backgroundColor = [UIColor yellowColor]; //tmp
 //    _textView.font = [UIFont systemFontOfSize:23]; //tmp
 //    _textView.alpha = 0.3; //tmp
     [self updateScrollEnabledForTextView:_textView];
@@ -267,22 +267,14 @@ static const UIEdgeInsets GKTextContentsInsets = {.top = 10.0f, .left = 10.0f, .
     CGSize res;
     res.width = [self textContentsWidthForObject:textView];
     res.height = [self textContentsHeightForObject:textView forWidth:res.width];
-    CGSize singleCharacterSize = [NSString singleCharacterSizeWithFont:textView.font];
-    // FIXME: heightForAutocorrectionPopup must depend on font
-    CGSize minSize = CGSizeMake(4*singleCharacterSize.width,
-                                singleCharacterSize.height + UITextView.heightForAutocorrectionPopup);
-    // ensure that result is bigger than minimal allowed size
-    res.width = res.width > minSize.width ? res.width : minSize.width;
-    res.height = res.height > minSize.height ? res.height : minSize.height;
-
-    res.width += 2*UITextView.textOffset.x;
-    res.height += 2*UITextView.textOffset.y;
+    res = [textView sizeThatFitsTextContentsSize:res];
     return res;
 }
 
-// workaround for avoiding slightly scrolling to bottom when typing a new line
+// workaround for avoiding slightly scrolling to bottom when typing in small text view
 - (void)updateScrollEnabledForTextView:(UITextView *)textView
 {
+    // If content in height is bigger than visible text view's height turn on scrolling
     if (textView.contentSize.height > [self sizeForTextView:textView].height)
         textView.scrollEnabled = YES;
     else
